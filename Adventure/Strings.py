@@ -11,7 +11,7 @@ def get(id):
                "Theres a small hut-like structure off to the side.\n"
                "You here growling coming from another cave nearby")
     elif id == "Boulders":
-        return("You walk over to the boulders. You see something shining but it trapped between some of thr boulders.\n"
+        return("You walk over to the boulders. You see something shining, but its trapped between some of the boulders.\n"
                "No way to lift them up right now")
     elif id == "Hut":
         return("You examine the old hut. It looks like its been a few years since anyone has been here. A few centuries even.\n"

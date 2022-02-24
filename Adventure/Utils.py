@@ -7,12 +7,12 @@ def getUserChoice(options):
         validInputs+=opt[0]
         print(opt[0], "-", opt[1])
         prompt="What do you want to do? [" + validInputs + "]: "
-        choice=""
-        done=False
-        while not done:
-            choice=input(prompt).strip().upper()
-            if len(choice) > 1:
-                choice=choice[0]
-            if len(choice) == 1 and choice in validInputs:
-                done = True
-        return choice
+    firstChoice=""
+    done=False
+    while not done:
+        userInput=input(prompt).strip().upper()
+        if len(userInput) > 1:
+            firstChoice=userInput[0]
+        if len(userInput) == 1 and userInput in validInputs:
+            done = True
+    return userInput
