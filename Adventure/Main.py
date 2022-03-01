@@ -6,7 +6,6 @@
 
 #######################################
 
-from re import T
 from Adventure.Inventory import findStructureKey
 import Strings
 import Utils
@@ -21,7 +20,8 @@ def doStart():
         ["B", "Go investigate the boulders"],
         ["H", "Go to the hut"],
         ["G", "Go find out whats growling"],
-        ["R", "RUN!"]
+        ["R", "RUN!"],
+        ["I", "Inventory"]
    ]
    pick = Utils.getUserChoice(choices)
    if pick == 'B':
@@ -32,8 +32,12 @@ def doStart():
        doGrowling()
    elif pick == 'R':
        doRun()
+   elif pick == 'I':
+        inv.display()
+        doStart()
    else:
         print("Unexpected input:", pick)
+
 
 def doBoulders():
    if not inv.hasStructuretool:
