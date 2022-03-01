@@ -31,5 +31,13 @@ def get(id):
                "You were never seen again.")
     elif id == "GameOver":
         return "Game over!"
+    elif id == "StructureTool":
+        return ("You think you have found a way into the hut.\n"
+                "You take the knife and start sawing throught the wood beams blocking the entryway")
+    elif id == "Knife":
+        return ("You go over to the boulder pile determined to find whatever was stuck between the boulders\n"
+                "You walk over to the hut grab a plank off the ground beside it and use it as a lever to get the blouders away from the thing.\n"
+                "You reach between the boulder and grab it.\n"
+                "It is a knife.")
     else:
         return "" 

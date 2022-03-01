@@ -6,8 +6,11 @@
 
 #######################################
 
+from re import T
+from Adventure.Inventory import findStructureKey
 import Strings
 import Utils
+import Inventory as inv
 
 def doWelcome():
    print(Strings.get("Welcome"))
@@ -33,8 +36,15 @@ def doStart():
         print("Unexpected input:", pick)
 
 def doBoulders():
-   print(Strings.get("Boulders"))
-   doStart
+   if not inv.hasStructuretool:
+        print(Strings.get("Knife"))
+        inv.findStructureKey
+   elif inv.hasStructuretool:
+        print("Good job, you found the knife. Put it to good use.")
+        doStart
+   else:
+     print(Strings.get("Boulders"))
+     doStart()
 
 def doHut():
    print(Strings.get("Hut"))
@@ -52,6 +62,26 @@ def doHut():
    elif choice0 == 'R':
         doRun()
 
+def doStructureDoor():
+     print(Strings.get("HutDoor"))
+     if inv.hasStructuretool():
+          print(Strings.get("HutDoorNoKey"))
+     else:
+     
+          print(Strings.get("StructureDoorNoKey"))
+          choices = [
+               ["S", "Back to the structure"],
+               ["R", "RUN!"]
+          ]
+     if inv.hasStructuretool():
+          choices.insert(0,["U", "Unblock the door"])
+     choice = Utils.getUserChoice(choices)
+     if choice == 'S':
+          doHut()
+     elif choice == 'R':
+          doRun()
+     elif choice == 'U':
+          doEnterHut()
 def doLook():
    print(Strings.get("Look"))
    choice1=" "
@@ -60,6 +90,10 @@ def doLook():
         print("S = Go back to structure")
         print("R = RUN!")
         choice1=input("What do you want to do? [S/R]").upper().strip()
+   if choice1 == 'S':
+          doHut()
+   elif choice1 == 'R':
+          doRun()
 
 def doGrowling():
      pass
