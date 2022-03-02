@@ -1,20 +1,16 @@
-from ast import Lambda
-from operator import contains
-
-
 inv = {
-    "StructureTool": False,
+    "Knife": False,
     "Coins": 0
 }
 
-def findStructureKey():
-    inv["StructureTool"] = True
+def takeStructureKey():
+    inv["Knife"] = True
 
 def loseStructureKey():
-    inv["StructureTool"] = False
+    inv["Knife"] = False
 
 def hasStructuretool():
-    return inv["StructureTool"]
+    return inv["Knife"]
 
 def takeCoins(coins):
     inv["Coins"] += coins 
@@ -24,3 +20,10 @@ def loseCoins(coins):
 
 def numCoins():
     return inv["Coins"]
+
+def display():
+    print("*** INVENTORY ***")
+    print("You have", numCoins(), "coins")
+    if hasStructuretool():
+        print("You have a knife that can cut through the beam blocking the hut door")
+    print("*****************")

@@ -6,13 +6,16 @@
 
 #######################################
 
-from Adventure.Inventory import findStructureKey
 import Strings
 import Utils
 import Inventory as inv
+import Player
+
+p = Player.player()
 
 def doWelcome():
    print(Strings.get("Welcome"))
+   
 
 def doStart():
    print(Strings.get("Start"))
@@ -40,36 +43,45 @@ def doStart():
 
 
 def doBoulders():
-   if not inv.hasStructuretool:
-        print(Strings.get("Knife"))
-        inv.findStructureKey
-   elif inv.hasStructuretool:
-        print("Good job, you found the knife. Put it to good use.")
-        doStart
-   else:
-     print(Strings.get("Boulders"))
+     p.visitBoulder()
+     if p.getBoulderVisits() == 1:
+          print(Strings.get("Boulders"))
+          doStart()
+     elif p.getBoulderVisits() == 3:
+          print(Strings.get("Knife"))
+          inv.takeStructureKey()
+          doStart()
+     elif inv.hasStructuretool():
+          print("You have the knife. Use it.")
+     else:
+          print(Strings.get("Boulders2"))
      doStart()
 
 def doHut():
-   print(Strings.get("Hut"))
-   choice0=" "
-   while not choice0 in "SLR":
-        print("You can:")
-        print("S = Go back to start")
-        print("L = Look for a rock or something to help open the door")
-        print("R = RUN!")
-        choice0=input("What do you want to do? [S/L/R]").upper().strip()
-   if choice0 == 'S':
+     if inv.hasStructuretool() == True:
+          doStructureDoor()
+     else:
+       print(Strings.get("Hut"))
+       choice0=" "
+       while not choice0 in "SLR":
+          print("You can:")
+          print("S = Go back to start")
+          print("L = Look for a rock or something to help open the door")
+          print("R = RUN!")
+          choice0=input("What do you want to do? [S/L/R]").upper().strip()
+     if choice0 == 'S':
         doStart()
-   elif choice0 == 'L':
+     elif choice0 == 'L':
         doLook()
-   elif choice0 == 'R':
+     elif choice0 == 'R':
         doRun()
 
 def doStructureDoor():
      print(Strings.get("HutDoor"))
      if inv.hasStructuretool():
-          print(Strings.get("HutDoorNoKey"))
+          print(Strings.get("StructureTool"))
+          print(Strings.get("EnterHut"))
+          doStart()
      else:
      
           print(Strings.get("StructureDoorNoKey"))
@@ -99,12 +111,19 @@ def doLook():
    elif choice1 == 'R':
           doRun()
 
+def doEnterHut():
+     print(Strings.get("EnterHut"))
+
 def doGrowling():
      pass
+     doStart()
 
 def doRun():
    print(Strings.get("RUN"))
-   gameOver()
+   if p.livesLeft > 0:
+        p.died()
+   else:
+        gameOver()
 
 def gameOver():
     print(Strings.get("GameOver"))
