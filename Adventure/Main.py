@@ -11,6 +11,7 @@ import Utils
 import Inventory as inv
 import Player
 from colorama import init, Fore
+import Items
 
 p = Player.player()
 init()
