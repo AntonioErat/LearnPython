@@ -1,6 +1,5 @@
 from random import choice
 
-
 def getUserChoice(options):
     validInputs=""
     for opt in options:

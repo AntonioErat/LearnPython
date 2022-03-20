@@ -1,8 +1,6 @@
-import Player
-
 def get(id):
     if id == "Welcome":
-        return("Welcome ", Player.player.getName(), "!\n"
+        return("Welcome Adventurer!\n"
                 "You wake in a daze, recalling nothing useful.\n"
                 "Stumbling, you walk towards the light at the end of what seem to be a cave.\n"
                 "You step outside. Nothing is familiar.\n"
@@ -42,8 +40,8 @@ def get(id):
                 "You reach between the boulder and grab it.\n"
                 "It is a knife.")
     elif id == "EnterHut":
-        return("You enter the hut. it is empty except for a bed, a table, and a shelf. The floor looks old and worn.\n",
-               " you walk over to the table.")
+        return("You enter the hut. it is empty except for a bed, a table, and a shelf. The floor looks old and worn.",
+               "You walk over to the table.")
     elif id == "Boulders2":
         return("Honestly why you keep coming back here is beyond me. Theres no way to get it right now.")
     else:

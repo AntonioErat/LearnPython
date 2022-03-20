@@ -1,6 +1,6 @@
 class player:
     def __init__(self):
-        self.name = input("Whats your name? ").strip()
+        self.name = "Adventurer"
         self.livesLeft = 3
         self.boulderVisits = 0
         

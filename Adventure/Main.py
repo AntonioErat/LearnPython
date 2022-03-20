@@ -10,15 +10,17 @@ import Strings
 import Utils
 import Inventory as inv
 import Player
+from colorama import init, Fore
 
 p = Player.player()
+init()
 
 def doWelcome():
-   print(Strings.get("Welcome"))
+     print(Fore.GREEN+Strings.get("Welcome"))
    
 
 def doStart():
-   print(Strings.get("Start"))
+   print(Fore.YELLOW+Strings.get("Start"))
    choices = [
         ["B", "Go investigate the boulders"],
         ["H", "Go to the hut"],
@@ -77,7 +79,7 @@ def doHut():
         doRun()
 
 def doStructureDoor():
-     print(Strings.get("HutDoor"))
+     print(Fore.CYAN+Strings.get("HutDoor"))
      if inv.hasStructuretool():
           print(Strings.get("StructureTool"))
           print(Strings.get("EnterHut"))
@@ -122,6 +124,7 @@ def doRun():
    print(Strings.get("RUN"))
    if p.livesLeft > 0:
         p.died()
+        doStart()
    else:
         gameOver()
 

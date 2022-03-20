@@ -10,5 +10,6 @@ if billAmount or tipPercentage is numeric:
     tipAmount = billAmount / tipPercentage
     total = billAmount + tipAmount
     print(billAmount, "divided by", tipPercentage, "=", tipAmount, "+", billAmount, "=", total)
+    print("The total cost of the bill is", total)
 else:
     print("Please enter a number")
