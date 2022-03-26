@@ -12,6 +12,7 @@ import Inventory as inv
 import Player
 from colorama import init, Fore
 import Items
+import random
 
 p = Player.player()
 init()
@@ -128,6 +129,12 @@ def doRun():
         doStart()
    else:
         gameOver()
+
+if Utils.randomEvent(4):
+     coins=random.randrange(1, 101)
+     print("You see",  coins, "coins on the ground.")
+     print("You pick them up.")
+     inv.takeCoins(coins)
 
 def gameOver():
     print(Strings.get("GameOver"))

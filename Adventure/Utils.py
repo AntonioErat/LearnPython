@@ -1,4 +1,4 @@
-from random import choice
+import random
 
 def getUserChoice(options):
     validInputs=""
@@ -15,3 +15,6 @@ def getUserChoice(options):
         if len(userInput) == 1 and userInput in validInputs:
             done = True
     return userInput
+
+def randomEvent(freq):
+    return True if random.randrange(0, freq)==0 else False
