@@ -13,6 +13,7 @@ import Player
 from colorama import init, Fore
 import Items
 import random
+import Enemies
 
 p = Player.player()
 init()
@@ -95,12 +96,12 @@ def doStructureDoor():
           ]
      if inv.hasStructuretool():
           choices.insert(0,["U", "Unblock the door"])
-     choice = Utils.getUserChoice(choices)
-     if choice == 'S':
+     choice0 = Utils.getUserChoice(choices)
+     if choice0 == 'S':
           doHut()
-     elif choice == 'R':
+     elif choice0 == 'R':
           doRun()
-     elif choice == 'U':
+     elif choice0 == 'U':
           doEnterHut()
 def doLook():
    print(Strings.get("Look"))
@@ -121,6 +122,9 @@ def doEnterHut():
 def doGrowling():
      pass
      doStart()
+
+def getRandomEnemy():
+     return random.choice(Enemies.enemies)
 
 def doRun():
    print(Strings.get("RUN"))
