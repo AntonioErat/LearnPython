@@ -73,7 +73,7 @@ def doHut():
           print("S = Go back to start")
           print("L = Look for a rock or something to help open the door")
           print("R = RUN!")
-          choice0=input("What do you want to do? [S/L/R]").upper().strip()
+          choice0=input("What do you want to do? [S/L/R]: ").upper().strip()
      if choice0 == 'S':
         doStart()
      elif choice0 == 'L':
